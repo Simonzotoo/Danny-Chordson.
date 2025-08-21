@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danny Chordson | Professional Pianist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@400;500;600&display=swap">
+    <style>
+        :root {
+            --terracotta: #E07A5F;
+            --sage: #81B29A;
+            --beige: #F4F1DE;
+            --deep-brown: #3D405B;
+            --light-taupe: #D9BF9A;
+            --clay: #A97C50;
+            --forest: #4A6B5F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--beige);
+            color: var(--deep-brown);
+            line-height: 1.6;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--deep-brown);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            color: var(--beige);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--terracotta);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--beige);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--terracotta);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--beige);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(61, 64, 91, 0.85), rgba(61, 64, 91, 0.9)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--beige);
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--terracotta);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: var(--sage);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--beige);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--beige);
+            color: var(--deep-brown);
+        }
+        
+        /* Image Upload Button */
+        .upload-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .upload-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--deep-brown);
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--terracotta);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: 10px;
+            bottom: 10px;
+            border: 3px solid var(--terracotta);
+            border-radius: 15px;
+            z-index: -1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.7s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Education & Experience */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .timeline-date {
+            min-width: 150px;
+            color: var(--terracotta);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding-top: 5px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding-bottom: 30px;
+            border-bottom: 2px dashed var(--light-taupe);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -40px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--sage);
+            border-radius: 50%;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            color: var(--deep-brown);
+            font-size: 1.4rem;
+        }
+        
+        .timeline-content p {
+            color: var(--forest);
+        }
+        
+        /* Collaborations */
+        .collaborations {
+            background-color: var(--deep-brown);
+            color: var(--beige);
+        }
+        
+        .collaborations .section-title h2 {
+            color: var(--beige);
+        }
+        
+        .collaboration-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 1.2rem;
+        }
+        
+        .collaboration-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .collaboration-item {
+            text-align: center;
+            width: 170px;
+            transition: transform 0.3s;
+        }
+        
+        .collaboration-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .collaboration-item img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--terracotta);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .collaboration-item:hover img {
+            border-color: var(--sage);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .collaboration-item p {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .collaboration-item a {
+            color: var(--beige);
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .collaboration-item a:hover {
+            color: var(--terracotta);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Video Section */
+        .video-section {
+            position: relative;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 280px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* Contact */
+        .contact-content {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .info-item:hover {
+            background-color: rgba(129, 178, 154, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .info-item i {
+            width: 60px;
+            height: 60px;
+            background-color: var(--sage);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+        
+        .info-item:hover i {
+            background-color: var(--terracotta);
+            transform: scale(1.1);
+        }
+        
+        .info-item div h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .info-item div p {
+            color: var(--forest);
+            transition: color 0.3s;
+        }
+        
+        .info-item:hover div p {
+            color: var(--terracotta);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid var(--light-taupe);
+            border-radius: 8px;
+            background-color: white;
+            font-size: 1rem;
+            font-family: 'Raleway', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        /* Form Status Messages */
+        .form-status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .form-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .form-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--terracotta);
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--deep-brown);
+            color: var(--beige);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--beige);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .social-links a {
+            color: var(--beige);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--terracotta);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                height: 100vh;
+                width: 100%;
+                flex-direction: column;
+                clip-path: circle(0px at 90% -10%);
+                -webkit-clip-path: circle(0px at 90% -10%);
+                background: var(--deep-brown);
+                transition: all 0.8s ease-out;
+                pointer-events: none;
+                display: flex;
+                padding: 100px 50px;
+                top: 0;
+                left: 0;
+                z-index: 99;
+            }
+            
+            .nav-links.open {
+                clip-path: circle(1500px at 90% -10%);
+                -webkit-clip-path: circle(1500px at 90% -10%);
+                pointer-events: all;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+                margin-left: 0;
+                opacity: 0;
+            }
+            
+            .nav-links li a {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links li:nth-child(1) { transition: all 0.5s ease 0.2s; }
+            .nav-links li:nth-child(2) { transition: all 0.5s ease 0.4s; }
+            .nav-links li:nth-child(3) { transition: all 0.5s ease 0.6s; }
+            .nav-links li:nth-child(4) { transition: all 0.5s ease 0.8s; }
+            .nav-links li:nth-child(5) { transition: all 0.5s ease 1s; }
+            
+            .nav-links.open li {
+                opacity: 1;
+            }
+            
+            .hamburger {
+                display: flex;
+                z-index: 100;
+            }
+            
+            .hamburger.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.open span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .timeline-content::before {
+                display: none;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px; /* optional: rounded corners */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* optional: shadow */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes sure it fills nicely */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><i class=""></i> Nana Yaw Jnr</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#collaborations">Collaborations</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+        <div class="hero-content fade-in">
+            <h1>Nana Yaw Jnr</h1>
+            <p>Professional Pianist & Business Strategist</p>
+            <div>
+                <a href="#contact" class="btn">Get in Touch</a>
+                <a href="#gallery" class="btn btn-outline">View Portfolio</a>
+            </div>
+        </div>
+        <button class="upload-btn" id="upload-hero-btn">
+            <i class="fas fa-upload"></i> Upload Hero Image
+        </button>
+        <input type="file" id="hero-upload" accept="image/*" style="display: none;">
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>A dedicated professional with a unique blend of expertise in business and the creative arts. I hold a first degree in Marketing from UPSA and a second degree in Procurement from UCC, providing a strong foundation in strategic sourcing, supply chain management, and brand development.</p>
+                    <p>Parallel to my academic journey, I have cultivated a 20-year career as a versatile musician. Beginning with drums, I expanded my repertoire to master the piano and learnt the bass guitar.</p>
+                    <p>I am skilled at bridging the gap between creative vision and operational execution, making me a valuable asset in any project-driven environment.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images\png.png" alt="Danny Chordson">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2023</div>
+                    <div class="timeline-content">
+                        <h3>Masters Degree in Procurement</h3>
+                        <p>University of Cape Coast (UCC)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2013-2017</div>
+                    <div class="timeline-content">
+                        <h3>Degree in Marketing</h3>
+                        <p>University of Professional Studies, Accra (UPSA)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2005-Present</div>
+                    <div class="timeline-content">
+                        <h3>Professional Musician</h3>
+                        <p>Studio and live performance work with internationally recognized artists</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2015-Present</div>
+                    <div class="timeline-content">
+                        <h3>Main Pianist and Arranger</h3>
+                        <p>Keeper's Music</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborations -->
+    <section id="collaborations" class="collaborations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notable Collaborations</h2>
+            </div>
+            <p class="collaboration-intro">
+                This dedication has led to significant collaborations, including studio and live performance work with internationally recognized artists.
+            </p>
+            <div class="collaboration-logos">
+                <div class="collaboration-item">
+                    <img src="images\phil.jfif" alt="Phil Thompson">
+                    <a href="https://www.youtube.com/channel/UC_x5XG1OV2M6ey7o5Bnz52Q" target="_blank">
+                        <p>Phil Thompson</p>
+                        <small>View Projects</small>
+                    </a>
+                </div>
+                <div class="collaboration-item">
+                    <img src="images\joe mettle.jpg" alt="Joe Mettle">
+                    <a href="https://www.youtube.com/channel/UC4Fd6_8bqRkqCXxWxIfeiew" target="_blank">
+                        <p>Joe Mettle</p>
+                        <small>View Projects</small>
+                    </a>
+                </div>
+                <div class="collaboration-item">
+                    <img src="images\pita.jpg" alt="PITA">
+                    <a href="https://www.youtube.com/channel/UC2o9h3fYuId1zv8dHp4nHkg" target="_blank">
+                        <p>PITA (Nigeria)</p>
+                        <small>View Projects</small>
+                    </a>
+                </div>
+                <div class="collaboration-item">
+                    <img src="images\george krown.jpeg" alt="George Krown">
+                    <a href="https://www.youtube.com/channel/UC2o9h3fYuId1zv8dHp4nHkg" target="_blank">
+                        <p>George Krown (UK)</p>
+                        <small>View Projects</small>
+                    </a>
+                </div>
+                <div class="collaboration-item">
+                    <img src="images\abebe tabi.jpg" alt="Abebe Tabi">
+                    <a href="https://www.youtube.com/channel/UCgN_NWX6uL1XcMZQcMvSdaw" target="_blank">
+                        <p>Abebe Tabi (UK)</p>
+                        <small>View Projects</small>
+                    </a>
+                </div>
+                <div class="collaboration-item">
+                    <img src="images\keepers music.jpg" alt="Keeper's Music">
+                    <a href="https://youtube.com/playlist?list=OLAK5uy_mOhCbGPVDgC2dPr86GtxNqWI3qxOOui9g&si=v7-QwxCXAIINveH1" target="_blank">
+                        <p>Keeper's Music</p>
+                        <small>View Projects</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+<section class="video-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Live service  Video</h2>
+    </div>
+    <div class="video-container">
+      <video controls>
+        <source src="images\danny vid.mov" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images\PHOTO-2025-08-20-09-06-55 4.jpg" alt="Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="images\PHOTO-2025-08-20-09-06-30 3.jpg" alt="Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="images\PHOTO-2025-08-20-09-06-55 2.jpg" alt="Studio Session">
+                </div>
+                <div class="gallery-item">
+                    <img src="images\PHOTO-2025-08-20-09-06-55.jpg" alt="Collaboration">
+                </div>
+                <div class="gallery-item">
+                    <img src="images\PHOTO-2025-08-20-09-06-56 6.jpg" alt="Live Show">
+                </div>
+                <div class="gallery-item">
+                    <img src="images\PHOTO-2025-08-20-09-06-56 4.jpg" alt="Rehearsal">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="info-item" onclick="contactViaEmail()">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>mdanielnanayaw@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item" onclick="contactViaPhone()">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+233 50 983 1980</p>
+                        </div>
+                    </div>
+                    <div class="info-item" onclick="contactViaWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+233 26 640 7038</p>
+                        </div>
+                    </div>
+                    <div class="info-item" onclick="showLocation()">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Accra, Ghana</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <div id="form-status" class="form-status"></div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="spinner" id="form-spinner"></div>
+                        <button type="submit" class="btn" id="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/233266407038?text=Hello%20Danny,%20I%20visited%20your%20website%20and%20would%20like%20to%20get%20in%20touch." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Danny Chordson</div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/15ScaoM83g/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                   <!--<a href="#"><i class="fab fa-twitter"></i></a>-->
+                    <a href="https://www.instagram.com/nanayaw1_jr?igsh=MXZsM3didmM3MW1mYQ%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/daniel-nana-yaw-mensah-215828373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@nanayawjnr5961"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@nanayawjnr_1?_t=ZM-8z2VfWqPT1S&_r=1"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Danny Chordson. All Rights Reserved.</p>
+                <p>&copy; Developed by Jay_Tech solutions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate form
+            if (!name || !email || !message) {
+                showFormStatus('Please fill in all fields', 'error');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showFormStatus('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Show loading spinner
+            const spinner = document.getElementById('form-spinner');
+            const submitBtn = document.getElementById('submit-btn');
+            spinner.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual form submission code)
+            simulateFormSubmission(name, email, message);
+        });
+        
+        // Function to simulate form submission
+        function simulateFormSubmission(name, email, message) {
+            // In a real implementation, you would send this data to a server
+            // For now, we'll simulate a network request with a timeout
+            
+            setTimeout(() => {
+                // Hide spinner
+                document.getElementById('form-spinner').style.display = 'none';
+                document.getElementById('submit-btn').disabled = false;
+                
+                // Show success message
+                showFormStatus('Thank you for your message! Danny Chordson will get back to you shortly.', 'success');
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // In a real implementation, you would:
+                // 1. Send the data to your server using fetch() or XMLHttpRequest
+                // 2. Handle the response from the server
+                // 3. Show appropriate messages based on the response
+                
+                // Example of what the actual code might look like:
+                /*
+                fetch('https://your-server.com/contact-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Hide spinner
+                    document.getElementById('form-spinner').style.display = 'none';
+                    document.getElementById('submit-btn').disabled = false;
+                    
+                    if (data.success) {
+                        showFormStatus('Thank you for your message! Danny Chordson will get back to you shortly.', 'success');
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        showFormStatus('There was an error sending your message. Please try again.', 'error');
+                    }
+                })
+                .catch(error => {
+                    // Hide spinner
+                    document.getElementById('form-spinner').style.display = 'none';
+                    document.getElementById('submit-btn').disabled = false;
+                    showFormStatus('There was an error sending your message. Please try again.', 'error');
+                });
+                */
+                
+            }, 1500); // Simulate 1.5 second network delay
+        }
+        
+        // Function to show form status messages
+        function showFormStatus(message, type) {
+            const statusElement = document.getElementById('form-status');
+            statusElement.textContent = message;
+            statusElement.className = 'form-status ' + type;
+            
+            // Auto-hide success messages after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusElement.className = 'form-status';
+                }, 5000);
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Fade in elements on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOptions = {
+            threshold: 0.3,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        
+        const fadeInObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            });
+        }, fadeInOptions);
+        
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+        
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links li');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            
+            // Animate links
+            links.forEach(link => {
+                link.classList.toggle('fade');
+            });
+        });
+        
+        // Close menu when clicking on a link
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+            });
+        });
+        
+        // Hero image upload functionality
+        const uploadBtn = document.getElementById('upload-hero-btn');
+        const fileInput = document.getElementById('hero-upload');
+        const heroSection = document.getElementById('hero-section');
+        
+        uploadBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    // Create a temporary image to check dimensions
+                    const tempImg = new Image();
+                    tempImg.src = e.target.result;
+                    
+                    tempImg.onload = function() {
+                        // Set the uploaded image as background
+                        heroSection.style.backgroundImage = `linear-gradient(rgba(61, 64, 91, 0.85), rgba(61, 64, 91, 0.9)), url(${e.target.result})`;
+                        
+                        // Save to localStorage for persistence
+                        localStorage.setItem('heroImage', e.target.result);
+                    };
+                };
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        
+        // Check if there's a saved hero image in localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedHeroImage = localStorage.getItem('heroImage');
+            if (savedHeroImage) {
+                heroSection.style.backgroundImage = `linear-gradient(rgba(61, 64, 91, 0.85), rgba(61, 64, 91, 0.9)), url(${savedHeroImage})`;
+            }
+        });
+        
+        // Contact methods functionality
+        function contactViaEmail() {
+            window.location.href = "mailto:mdanielnanayaw@gmail.com?subject=Inquiry from Website&body=Hello Danny, I visited your website and would like to get in touch.";
+        }
+        
+        function contactViaPhone() {
+            window.location.href = "tel:+233509831980";
+        }
+        
+        function contactViaWhatsApp() {
+            window.open("https://wa.me/233509831980?text=Hello%20Danny,%20I%20visited%20your%20website%20and%20would%20like%20to%20get%20in%20touch.", "_blank");
+        }
+        
+        function showLocation() {
+            alert("Danny is based in Accra, Ghana. For specific location details, please contact directly.");
+        }
+    </script>
+</body>
+</html>
